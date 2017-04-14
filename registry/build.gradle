@@ -1,0 +1,55 @@
+group 'murphd40'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+//    compile group: '', name: '', version: ''
+
+//    // Setup Spring Boot
+//    compile "org.springframework.boot:spring-boot-starter"
+//    // Setup Spring MVC & REST, use Embedded Tomcat
+//    compile "org.springframework.boot:spring-boot-starter-web"
+//    compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+//    // Setup Spring Data common components
+//    compile "org.springframework.data:spring-data-commons"
+//    // Testing starter
+//    compile "org.springframework.boot:spring-boot-starter-test"
+//    // Setup Spring Data JPA Repository support
+//    compile "org.springframework.boot:spring-boot-starter-data-jpa"
+//    // In-memory database for testing/demos
+//    compile "org.hsqldb:hsqldb"
+//    // Spring Cloud starter
+//    compile "org.springframework.cloud:spring-cloud-starter"
+//    // Eureka service registration
+//    compile "org.springframework.cloud:spring-cloud-starter-eureka-server"
+
+    compile "org.springframework.boot:spring-boot-starter:${springBootVersion}",
+            "org.springframework.boot:spring-boot-starter-web:${springBootVersion}",
+            "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}",
+            "org.springframework.data:spring-data-commons:${springDataCommonsVersion}",
+            "org.springframework.boot:spring-boot-starter-test:${springBootVersion}",
+            "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}",
+            "org.hsqldb:hsqldb:${hsqldbVersion}",
+            "org.springframework.cloud:spring-cloud-starter:${springCloudStarterVersion}",
+            "org.springframework.cloud:spring-cloud-starter-eureka-server:${springCloudStarterEurekaServerVersion}"
+    
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
