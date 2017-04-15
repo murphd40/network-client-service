@@ -1,2 +1,4 @@
 include 'registry'
+include 'calculator-service'
+include 'web-service'
 
