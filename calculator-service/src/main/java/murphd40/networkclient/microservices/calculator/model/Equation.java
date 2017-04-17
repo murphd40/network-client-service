@@ -20,16 +20,18 @@ public class Equation {
     }
 
     public enum Operator {
-        add((x, y) -> x.doubleValue() + y.doubleValue(),"+"),
-        subtract((x, y) -> x.doubleValue() - y.doubleValue(), "-"),
-        multiply((x, y) -> x.doubleValue() * y.doubleValue(),"x", "*"),
-        divide((x, y) -> x.doubleValue() / y.doubleValue(), "/");
+        add((x, y) -> x.doubleValue() + y.doubleValue(), 0, "+"),
+        subtract((x, y) -> x.doubleValue() - y.doubleValue(), 0, "-"),
+        multiply((x, y) -> x.doubleValue() * y.doubleValue(), 1,"x", "*"),
+        divide((x, y) -> x.doubleValue() / y.doubleValue(), 1, "/");
 
         private BiFunction<Number, Number, Number> function;
-
+        private int precedence;
         private Set<String> symbols;
 
-        Operator(BiFunction<Number, Number, Number> function, String... symbols) {
+        Operator(BiFunction<Number, Number, Number> function, int precedence, String... symbols) {
+            this.function = function;
+            this.precedence = precedence;
             this.symbols = Sets.newHashSet(symbols);
         }
 
@@ -46,6 +48,11 @@ public class Equation {
         public Number apply(Number lhs, Number rhs) {
             return function.apply(lhs, rhs);
         }
+
+        public int getPrecedence() {
+            return precedence;
+        }
+
     }
 
     private Equation() {}
