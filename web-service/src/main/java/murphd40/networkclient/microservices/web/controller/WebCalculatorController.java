@@ -3,6 +3,8 @@ package murphd40.networkclient.microservices.web.controller;
 import murphd40.networkclient.microservices.web.client.rest.CalculatorServiceRestClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,9 +18,12 @@ public class WebCalculatorController {
     @Autowired
     private CalculatorServiceRestClient calculatorServiceRestClient;
 
-    @RequestMapping
-    public ResponseEntity<String> calculate() {
-        return ResponseEntity.ok(calculatorServiceRestClient.calculate("1+1"));
+    @RequestMapping("/{equation}")
+    public ResponseEntity<String> calculate(Model model, @PathVariable String equation) {
+        model.addAttribute("equation", equation);
+        String result = calculatorServiceRestClient.calculate(equation);
+        model.addAttribute("result", result);
+        return ResponseEntity.ok(result);
     }
 
 }
