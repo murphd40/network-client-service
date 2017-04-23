@@ -16,7 +16,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
  * Created by David on 19/04/2017.
  */
 @SpringBootTest(webEnvironment = RANDOM_PORT, classes = BaseCalculatorServiceRestTest.RestTestConfig.class)
-public class BaseCalculatorServiceRestTest extends BaseSpringBootTest {
+public abstract class BaseCalculatorServiceRestTest extends BaseSpringBootTest {
 
     @Rule
     public final ExpectedHttpClientException expectedHttpClientException = ExpectedHttpClientException.none();

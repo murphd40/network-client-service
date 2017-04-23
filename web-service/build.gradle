@@ -12,3 +12,13 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Web Service', 'Implementation-Version': version
+    }
+}
+
+springBoot {
+    mainClass = "murphd40.networkclient.microservices.web.WebServer"
+}

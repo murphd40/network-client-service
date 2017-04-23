@@ -4,9 +4,11 @@ import murphd40.networkclient.microservices.web.client.rest.CalculatorServiceRes
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpClientErrorException;
 
 /**
  * Created by David on 15/04/2017.
@@ -24,6 +26,11 @@ public class WebCalculatorController {
         String result = calculatorServiceRestClient.calculate(equation);
         model.addAttribute("result", result);
         return ResponseEntity.ok(result);
+    }
+
+    @ExceptionHandler(HttpClientErrorException.class)
+    public ResponseEntity handleClientError() {
+        return ResponseEntity.badRequest().build();
     }
 
 }
