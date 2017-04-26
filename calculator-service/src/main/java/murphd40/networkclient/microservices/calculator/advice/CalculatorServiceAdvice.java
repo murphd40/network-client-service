@@ -16,6 +16,10 @@ public class CalculatorServiceAdvice {
     @Pointcut("execution(* murphd40.networkclient.microservices.calculator.service.CalculatorService.*(..) )")
     public void anyCalculatorServiceMethod() {}
 
+    /**
+     * Wrap any exception thrown by CalculatorService in a CalculatorServiceException, which is configured return a
+     * 400 BAD_REQUEST response when thrown
+     */
     @AfterThrowing(pointcut = "anyCalculatorServiceMethod()", throwing = "t")
     public void wrapException(Throwable t) {
         throw new CalculatorServiceException(t);

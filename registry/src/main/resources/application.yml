@@ -7,7 +7,7 @@ eureka:
     fetchRegistry: false
 
 server:
-  port: ${REGISTRY_SERVICE_PORT:1111}   # HTTP (Tomcat) port
+  port: ${REGISTRY_SERVICE_PORT:9000}   # HTTP (Tomcat) port
 
 # Discovery Server Dashboard uses FreeMarker.  Don't want Thymeleaf templates
 spring:

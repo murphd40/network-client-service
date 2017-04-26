@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="header :: copy"></head>
-
 <body>
-	<h1>Microservices Demo - Accounts Server</h1>
+	<h1>Web Service</h1>
 
-	<p>Accounts Server Microservice is running.</p>
+	<p>Web Server Microservice is running.</p>
 
 	<p>
-		This account should exist: <a href="/accounts/123456789">123456789</a>.
-		Look in <code>data.sql</code> to see the rest
+		Make a request to evaluate an expression: <a href="/calculate/2+3*5">/calculate/2+3*5</a>.
 	</p>
 
 	<h3>Spring Boot URLs</h3>
@@ -25,8 +22,6 @@
 		<li><a th:href="@{/metrics}">Application metrics</a></li>
 		<li><a th:href="@{/trace}">Request call trace</a></li>
 	</ul>
-
-	<div th:replace="footer :: copy"></div>
 
 </body>
 </html>
