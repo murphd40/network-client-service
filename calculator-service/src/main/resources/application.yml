@@ -16,4 +16,4 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:${REGISTRY_SERVICE_PORT:9000}/eureka/
   instance:
-    leaseRenewalIntervalInSeconds: 15
+    leaseRenewalIntervalInSeconds: 5

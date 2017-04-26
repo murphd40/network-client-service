@@ -40,6 +40,6 @@ The default port values for the Registry, Web, and Calculator services are 9000,
 
  You should now see the services registered on Eureka and the ports that they are running on.
 
- Now you can make a request to the web service to evaluate an expression:
+ Now you can make a request to the web service:
 
- http://localhost:9100/calculate/2+3*5
+ http://localhost:9100/
